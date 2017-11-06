@@ -29,7 +29,7 @@
             padding: 4px; /* Поля в ячейках */
         }
 
-        .botonLine {
+        #botonLine {
             border-bottom: 2px solid #a09986;
         }
 
@@ -56,9 +56,8 @@
     </thead>
     <tbody>
     <c:forEach var="item" items="${meal}">
-        <tr <c:if test="${item.exceed == false}"> class="red" </c:if>
-            <c:if test="${item.exceed == true}"> class="green" </c:if> >
-            <td>${f:formatLocalDateTime(item.dateTime, 'dd.MM.yyyy')}</td>
+        <tr class="${item.exceed == false ? 'green' : 'red'}" id="botonLine">
+            <td>${f:formatLocalDateTime(item.dateTime, 'd.MM.yyyy')}</td>
             <td>${item.description}</td>
             <td>${item.calories}</td>
         </tr>
