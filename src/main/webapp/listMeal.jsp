@@ -34,16 +34,16 @@
         }
 
         .red {
-            color: red;
+            background-color: red;
         }
 
         .green {
-            color: green;
+            background-color: green;
         }
     </style>
 </head>
 <body>
-<h3><a href="index.html">Home</a></h3>
+<%--<h3><a href="index.html">Home</a></h3>--%>
 
 <table width="50%">
     <thead>
@@ -51,19 +51,23 @@
         <th>Дата/Время</th>
         <th>Описание</th>
         <th>Калории</th>
-        <th></th>
+        <th colspan="2">Действие</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="item" items="${meal}">
         <tr class="${item.exceed == false ? 'green' : 'red'}" id="botonLine">
-            <td>${f:formatLocalDateTime(item.dateTime, 'd.MM.yyyy')}</td>
+            <td>${f:formatLocalDateTime(item.dateTime, 'dd.MM.yyyy HH:mm')}</td>
             <td>${item.description}</td>
             <td>${item.calories}</td>
+            <td><a href="meals?action=edit&mealID=<c:out value="${item.id}"/>">Edit</a> </td>
+            <td><a href="meals?action=delete&mealID=<c:out value="${item.id}"/>">Delete</a> </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+
+<p><a href="meals?action=insert">Добавить</a> </p>
 
 </body>
 </html>

@@ -7,6 +7,6 @@ public final class Dates {
     private Dates() {}
 
     public static String formatLocalDateTime(LocalDateTime localDateTime, String pattern) {
-        return localDateTime.format(DateTimeFormatter.ofPattern(pattern));
+        return localDateTime == null ? LocalDateTime.now().format(DateTimeFormatter.ofPattern(pattern)) : localDateTime.format(DateTimeFormatter.ofPattern(pattern));
     }
 }
