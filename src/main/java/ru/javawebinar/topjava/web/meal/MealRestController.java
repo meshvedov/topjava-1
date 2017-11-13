@@ -10,6 +10,9 @@ import ru.javawebinar.topjava.service.MealService;
 import ru.javawebinar.topjava.to.MealWithExceed;
 import ru.javawebinar.topjava.util.MealsUtil;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -19,10 +22,27 @@ public class MealRestController {
     @Autowired
     private MealService service;
 
-    public List<MealWithExceed> getAll() {
+//    public Collection<MealWithExceed> getAll() {
+//        log.info("Meal.getAll");
+//        return MealsUtil.getWithExceeded(service.getAll(AuthorizedUser.id()), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+//    }
+
+    public Collection<MealWithExceed> getAll() {
         log.info("Meal.getAll");
         return MealsUtil.getWithExceeded(service.getAll(AuthorizedUser.id()), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+//        return service.getAll(AuthorizedUser.id());
     }
+
+    public Collection<MealWithExceed> getAll(LocalDate start, LocalDate end) {
+        log.info("MealWithExceed.getAll.Date");
+        return MealsUtil.getWithExceeded(service.getAll(AuthorizedUser.id(), start, end), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+    }
+
+    public Collection<MealWithExceed> getAll(LocalTime start, LocalTime end) {
+        log.info("MealWithExceed.getAll.Time");
+        return MealsUtil.getWithExceeded(service.getAll(AuthorizedUser.id(), start, end), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+    }
+
     public Meal get(int id) {
         log.info("get {}", id);
         return service.get(id, AuthorizedUser.id());
@@ -38,8 +58,8 @@ public class MealRestController {
         service.delete(id, AuthorizedUser.id());
     }
 
-    public void update(Meal meal) {
-        log.info("update {}", meal);
+    public void update(Meal meal, int id) {
+        log.info("update {} with id={}", meal, id);
         service.update(meal);
     }
 }

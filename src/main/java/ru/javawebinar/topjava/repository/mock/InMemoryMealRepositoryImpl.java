@@ -6,10 +6,15 @@ import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.util.MealsUtil;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+
+import static ru.javawebinar.topjava.util.DateTimeUtil.*;
+
 @Repository
 public class InMemoryMealRepositoryImpl implements MealRepository {
     private Map<Integer, Meal> repository = new ConcurrentHashMap<>();
@@ -48,6 +53,20 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
         return mealForUserId.stream().
                 filter(x -> x.getUserId() == userId).
                 sorted(Comparator.comparing(Meal::getDateTime).reversed()).
+                collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public Collection<Meal> getAll(int userId, LocalDate startDate, LocalDate endDate) {
+        return getAll(userId).stream().
+                filter(x -> isBetween(x.getDateTime(), startDate, endDate)).
+                sorted(Comparator.comparing(Meal::getDateTime)).
+                collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public Collection<Meal> getAll(int userId, LocalTime startTime, LocalTime endTime) {
+        return getAll(userId).stream().
+                filter(x -> isBetween(x.getDateTime(), startTime, endTime)).
+                sorted(Comparator.comparing(Meal::getDateTime)).
                 collect(Collectors.toCollection(ArrayList::new));
     }
 }
