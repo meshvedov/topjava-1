@@ -22,15 +22,9 @@ public class MealRestController {
     @Autowired
     private MealService service;
 
-//    public Collection<MealWithExceed> getAll() {
-//        log.info("Meal.getAll");
-//        return MealsUtil.getWithExceeded(service.getAll(AuthorizedUser.id()), MealsUtil.DEFAULT_CALORIES_PER_DAY);
-//    }
-
     public Collection<MealWithExceed> getAll() {
         log.info("Meal.getAll");
         return MealsUtil.getWithExceeded(service.getAll(AuthorizedUser.id()), MealsUtil.DEFAULT_CALORIES_PER_DAY);
-//        return service.getAll(AuthorizedUser.id());
     }
 
     public Collection<MealWithExceed> getAll(LocalDate start, LocalDate end) {

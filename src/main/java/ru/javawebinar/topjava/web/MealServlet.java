@@ -67,39 +67,26 @@ public class MealServlet extends HttpServlet {
             case "delete":
                 int id = getId(request);
                 log.info("Delete {}", id);
-//                repository.delete(id, AuthorizedUser.id());
                 mealController.delete(id);
                 response.sendRedirect("meals");
                 break;
             case "create":
             case "update":
                 final Meal meal = "create".equals(action) ?
-                        new Meal(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES), "", 1000, AuthorizedUser.id()) :
-//                        repository.get(getId(request), AuthorizedUser.id());
-                        mealController.get(getId(request));
+                        new Meal(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES), "", 1000, AuthorizedUser.id()) : mealController.get(getId(request));
                 request.setAttribute("meal", meal);
                 request.getRequestDispatcher("/mealForm.jsp").forward(request, response);
                 break;
             case "all":
             default:
                 log.info("getAll");
-                String users = request.getParameter("users");
-                if (users != null)
-                    AuthorizedUser.setId(Integer.parseInt(users));
 
                 Collection<MealWithExceed> mealWithExceeds;
                 String sD = request.getParameter("startDate");
                 String eD = request.getParameter("endDate");
                 String sT = request.getParameter("startTime");
                 String eT = request.getParameter("endTime");
-//                if (sd != null || ed != null || sT != null || eT !=null) {
-//                    LocalDate startDate = sd != null ? LocalDate.parse(sd) : LocalDate.MIN;
-//                    LocalDate endDate = ed != null ? LocalDate.parse(ed) : LocalDate.MAX;
-//                    LocalTime startTime = sT != null ? LocalTime.parse(sT) : LocalTime.MIN;
-//                    LocalTime endTime = eT != null ? LocalTime.parse(eT) : LocalTime.MAX;
-//
-//                    mealWithExceeds = mealController.getAll(startDate, )
-//                }
+
                 if (sD != null && eD != null && !sD.equals("") && !eD.equals("")) {
                     LocalDate startDate = LocalDate.parse(sD);
                     LocalDate endDate = LocalDate.parse(eD);
