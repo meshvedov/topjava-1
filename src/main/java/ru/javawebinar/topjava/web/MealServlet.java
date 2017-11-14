@@ -8,6 +8,7 @@ import ru.javawebinar.topjava.AuthorizedUser;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.repository.mock.InMemoryMealRepositoryImpl;
+import ru.javawebinar.topjava.to.MealWithExceed;
 import ru.javawebinar.topjava.util.MealsUtil;
 import ru.javawebinar.topjava.web.meal.MealRestController;
 
@@ -17,21 +18,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Objects;
 
 public class MealServlet extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(MealServlet.class);
-
-//    private MealRepository repository;
 
     private MealRestController mealController;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-//        repository = new InMemoryMealRepositoryImpl();
         try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml")) {
             mealController = appCtx.getBean(MealRestController.class);
         }
@@ -54,7 +55,6 @@ public class MealServlet extends HttpServlet {
                 AuthorizedUser.id());
 
         log.info(meal.isNew() ? "Create {}" : "Update {}", meal);
-//        repository.save(meal);
         mealController.create(meal);
         response.sendRedirect("meals");
     }
@@ -86,9 +86,33 @@ public class MealServlet extends HttpServlet {
                 String users = request.getParameter("users");
                 if (users != null)
                     AuthorizedUser.setId(Integer.parseInt(users));
-                request.setAttribute("meals",
-                        mealController.getAll());
-//                        MealsUtil.getWithExceeded(repository.getAll(AuthorizedUser.id()), MealsUtil.DEFAULT_CALORIES_PER_DAY));
+
+                Collection<MealWithExceed> mealWithExceeds;
+                String sD = request.getParameter("startDate");
+                String eD = request.getParameter("endDate");
+                String sT = request.getParameter("startTime");
+                String eT = request.getParameter("endTime");
+//                if (sd != null || ed != null || sT != null || eT !=null) {
+//                    LocalDate startDate = sd != null ? LocalDate.parse(sd) : LocalDate.MIN;
+//                    LocalDate endDate = ed != null ? LocalDate.parse(ed) : LocalDate.MAX;
+//                    LocalTime startTime = sT != null ? LocalTime.parse(sT) : LocalTime.MIN;
+//                    LocalTime endTime = eT != null ? LocalTime.parse(eT) : LocalTime.MAX;
+//
+//                    mealWithExceeds = mealController.getAll(startDate, )
+//                }
+                if (sD != null && eD != null && !sD.equals("") && !eD.equals("")) {
+                    LocalDate startDate = LocalDate.parse(sD);
+                    LocalDate endDate = LocalDate.parse(eD);
+                    mealWithExceeds = mealController.getAll(startDate, endDate);
+                } else if (sT != null && eT != null && !sT.equals("") && !eT.equals("")) {
+                    LocalTime startTime = LocalTime.parse(sT);
+                    LocalTime endTime = LocalTime.parse(eT);
+                    mealWithExceeds = mealController.getAll(startTime, endTime);
+                } else {
+                    mealWithExceeds = mealController.getAll();
+                }
+
+                request.setAttribute("meals", mealWithExceeds);
                 request.getRequestDispatcher("/meals.jsp").forward(request, response);
                 break;
         }

@@ -23,6 +23,15 @@
     <a href="meals?action=create">Add Meal</a>
     <hr/>
 
+    <form action="meals" method="get">
+        От даты:<input type="date" value="${startDate}" name="startDate">
+        От времени:<input type="time" value="${startTime}" name="startTime">
+        До даты:<input type="date" value="${endDate}" name="endDate">
+        До времени:<input type="time" value="${endTime}" name="endTime">
+        <input type="submit" value="Go">
+    </form>
+
+
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
         <tr>

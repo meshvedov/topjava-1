@@ -58,14 +58,14 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
 
     public Collection<Meal> getAll(int userId, LocalDate startDate, LocalDate endDate) {
         return getAll(userId).stream().
-                filter(x -> isBetween(x.getDateTime(), startDate, endDate)).
+                filter(x -> isBetween(x.getDate(), startDate, endDate)).
                 sorted(Comparator.comparing(Meal::getDateTime)).
                 collect(Collectors.toCollection(ArrayList::new));
     }
 
     public Collection<Meal> getAll(int userId, LocalTime startTime, LocalTime endTime) {
         return getAll(userId).stream().
-                filter(x -> isBetween(x.getDateTime(), startTime, endTime)).
+                filter(x -> isBetween(x.getTime(), startTime, endTime)).
                 sorted(Comparator.comparing(Meal::getDateTime)).
                 collect(Collectors.toCollection(ArrayList::new));
     }
