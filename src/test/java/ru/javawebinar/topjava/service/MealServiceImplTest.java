@@ -17,10 +17,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static ru.javawebinar.topjava.MealTestData.*;
 import static ru.javawebinar.topjava.UserTestData.*;
-import static ru.javawebinar.topjava.MealTestData.MEAL1_USER;
-import static ru.javawebinar.topjava.MealTestData.MEAL2_USER;
-import static ru.javawebinar.topjava.MealTestData.assertMatch;
 
 @ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/spring-db.xml"})
 
@@ -50,6 +48,9 @@ public class MealServiceImplTest {
 
     @Test
     public void getBetweenDateTimes() throws Exception {
+        List<Meal> list = mealService.getBetweenDateTimes(LocalDateTime.of(2017, 11, 21, 0, 0),
+                LocalDateTime.of(2017, 11, 21, 10, 0), ADMIN_ID);
+        assertMatch(list, MEAL1_ADMIN);
     }
 
     @Test
