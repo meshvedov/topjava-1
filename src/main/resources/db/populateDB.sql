@@ -12,7 +12,7 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_USER', 100000),
   ('ROLE_ADMIN', 100001);
 
-INSERT INTO meals (userid, description, calories) VALUES
-  (100000, 'breakfast', 500),
-  (100000, 'dinner', 1000),
-  (100001, 'lunch', 1500);
+INSERT INTO meals (userid, description, calories, datetime) VALUES
+  (100000, 'breakfast', 500, make_timestamp(2017, 11, 22, 9,0,0.0)),
+  (100000, 'dinner', 1000, make_timestamp(2017, 11, 22, 12,0,0.0)),
+  (100001, 'lunch', 1500, TIMESTAMP '2017-11-22 10:0:0.0');
