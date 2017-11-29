@@ -22,15 +22,22 @@ public class JpaMealRepositoryImpl implements MealRepository {
     @Override
     @Transactional
     public Meal save(Meal meal, int userId) {
+
         if (meal.isNew()) {
             User ref = em.getReference(User.class, userId);
             meal.setUser(ref);
             em.persist(meal);
             return meal;
         } else {
-            if (meal.getUser().getId() != userId)
-                return null;
-            return em.merge(meal);
+            int i = em.createQuery("UPDATE Meal m SET m.description=:desc, m.calories=:cal, m.dateTime=:d_t WHERE m.id=:id AND m.user.id=:user_id").
+                    setParameter("desc", meal.getDescription()).
+                    setParameter("cal", meal.getCalories()).
+                    setParameter("d_t", meal.getDateTime()).
+                    setParameter("id", meal.getId()).
+                    setParameter("user_id", userId).executeUpdate();
+            return i == 0 ? null : meal;
+
+//            return em.merge(meal);
         }
     }
 
