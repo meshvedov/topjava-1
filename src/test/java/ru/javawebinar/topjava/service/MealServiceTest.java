@@ -137,5 +137,5 @@ public class MealServiceTest extends ServiceTest {
                 LocalDate.of(2015, Month.MAY, 30),
                 LocalDate.of(2015, Month.MAY, 30), USER_ID), MEAL3, MEAL2, MEAL1);
     }
-
+    
 }
