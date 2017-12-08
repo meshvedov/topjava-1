@@ -50,7 +50,7 @@
 ## Занятие 5:
 
 ### Раскрасил лог (в Spring Boot по умолчанию он тоже colored)
-#### Apply 5_4_HW4_optional.patch
+#### Apply 5_4_log_colored.patch
 - [Logback layouts coloring](https://logback.qos.ch/manual/layouts.html#coloring)
 - Дополнительно: [use colored output only when logging to a real terminal](https://stackoverflow.com/questions/31046748)
 
@@ -167,6 +167,7 @@
   - 2.3: Общие части для всех в `spring-db.xml` можно оставить как есть без профилей вверху файла (до первого `<beans profile=` ).
 - 3: Сделать тесты всех реализаций (`jdbc, jpa, datajpa`) через наследование (без дублирования)
   -  3.1 **сделать один базовый класс для `MealServiceTest` и `UserServiceTest`**.
+  -  3.2 сводку по времени выполнения тестов также сделать для `user`
 - 4: Запустить все тесты: `mvn test` (в IDEA Maven Lifecycle - test, кнопку skipTest отжать)
 
 #### Optional
@@ -194,4 +195,4 @@
 - 11: В релизации 7.1 учесть, что у юзера может отсутствовать еда
 - 12: [Ordering a join fetched collection in JPA using JPQL/HQL](http://stackoverflow.com/questions/5903774/ordering-a-join-fetched-collection-in-jpa-using-jpql-hql)
 - 13: `<beans profile=` в конфигурации контекста должны находиться после всех остальных объявлений.
-
+- 14: По умолчанию [maven-surefire-plugin](http://maven.apache.org/surefire/maven-surefire-plugin/examples/inclusion-exclusion.html) включает в тесты классы, заканчивающиеся на Test.
