@@ -176,7 +176,7 @@ C `@BatchSize(size = 200)` делается запрос на юзеров (1) �
 `DispatcherServlet` это сервлет, который раскидывает запросы по контроллерам (бинам контекста спринга). См <a href="http://design-pattern.ru/patterns/front-controller.html">паттерн Front Controller</a>.
 
 ### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 10. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFUEctTkRSMWNvRjg">Spring Internationalization</a>
-#### Apply 14_spring_i18n.patch
+#### Apply 6_15_spring_i18n.patch
 - **Убедитесь что <a href="https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%9F%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D1%83-utf-8">в настройках IDEA кодировка везде UTF-8</a>**
 - **Проверьте, что файлы локализации у вас в UTF-8 (в IDEA справа внизу в статусе есть кодировка и можно перекодировать).**
 
