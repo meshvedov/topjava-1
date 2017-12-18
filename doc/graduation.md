@@ -28,7 +28,8 @@ Each restaurant provides new menu each day.
 As a result, provide a link to github repository. It should contain the code, README.md with API documentation and couple curl commands to test it.
 
 -----------------------------
-<a href="http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/">10 Best Practices for Better RESTful API</a>
+- [15 тривиальных фактов о правильной работе с протоколом HTTP](https://habrahabr.ru/company/yandex/blog/265569/)
+- <a href="http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/">10 Best Practices for Better RESTful API</a>
 
 P.S.: Make sure everything works with latest version that is on github :)
 
