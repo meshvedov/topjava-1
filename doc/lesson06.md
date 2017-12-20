@@ -268,7 +268,7 @@ Hibernate supports following open-source cache implementations out-of-the-box: E
 - 2.1 Добавить транзакционность (`DataSourceTransactionManager`) в Jdbc реализации  
 - 2.2 Добавить еще одну роль к ADMIN (будет 2 роли: `ROLE_USER, ROLE_ADMIN`)
 - 2.3 Добавить проверку ролей в UserTestData.assertMatch
-- 2.4 Починить тесты в `JdbcUserRepositoryImpl` (добавить роли). 
+- 2.4 Починить тесты в `JdbcUserRepositoryImpl` (добавить роли). Доставать можно двумя способами: одним запросом с JOIN либо двумя запросами: отдельно `users` и отдельно `roles`.
   - 2.4.1 В реализации `getAll` НЕ делать запрос ролей для каждого юзера (N+1 select)
   - 2.4.2 При save посмотрите на <a href="https://www.mkyong.com/spring/spring-jdbctemplate-batchupdate-example/">batchUpdate()</a>
 
