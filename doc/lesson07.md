@@ -79,11 +79,12 @@ GROUP BY u.id
    - <a href="https://www.sghill.net/how-do-i-write-a-jackson-json-serializer-deserializer.html">Jackson JSON Serializer & Deserializer</a>
 
 ### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 7. [Тестирование REST контроллеров через JSONassert](https://drive.google.com/open?id=1cXbMXGxJkpI_-WNS77axG-vcfjAJ_gHg)</a>
+#### Apply 7_11_json_assert_tests.patch
 - [JSONassert](https://github.com/skyscreamer/JSONassert)
 - [Java Code Examples for ObjectMapper](https://www.programcreek.com/java-api-examples/index.php?api=com.fasterxml.jackson.databind.ObjectMapper)
 
 ### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 8. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVXNmOUdBbUxxWVU">Тестирование через SoapUi. UTF-8</a>
-#### Apply 7_13_soapui_utf8_converter.patch
+#### Apply 7_12_soapui_utf8_converter.patch
 - Инструменты тестирования REST:
   - <a href="http://www.soapui.org/">SoapUi</a>
   - <a href="http://rus-linux.net/lib.php?name=/MyLDP/internet/curlrus.html">Написание HTTP-запросов с помощью Curl</a>
