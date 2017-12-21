@@ -46,6 +46,8 @@ GROUP BY u.id
 #### Apply 7_07_controller_test.patch
 > - в `MockMvc` добавился `CharacterEncodingFilter`
 > - добавил `AllActiveProfileResolver`
+> - реализация Ehcache нетранзакционная, после отката транзакции в тестах по `@Transactional` Hibernate кэш не восстанавливал роль для USER. Добавил очистку кэша Hibernate в `AbstractControllerTest.setUp` (с учетом того, что `Profiles.REPOSITORY_IMPLEMENTATION` можно переключить на `JDBC`).
+
 
 -  <a href="https://github.com/hamcrest/hamcrest-junit">Hamcrest</a>
 -  <a href="http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/">Unit Testing of Spring MVC Controllers</a>
@@ -76,7 +78,24 @@ GROUP BY u.id
 -  Дополнительно:
    - <a href="https://www.sghill.net/how-do-i-write-a-jackson-json-serializer-deserializer.html">Jackson JSON Serializer & Deserializer</a>
 
-### TODO: сегодня выложу окончание урока
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 7. [Тестирование REST контроллеров через JSONassert](https://drive.google.com/open?id=1cXbMXGxJkpI_-WNS77axG-vcfjAJ_gHg)</a>
+- [JSONassert](https://github.com/skyscreamer/JSONassert)
+- [Java Code Examples for ObjectMapper](https://www.programcreek.com/java-api-examples/index.php?api=com.fasterxml.jackson.databind.ObjectMapper)
+
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 8. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFVXNmOUdBbUxxWVU">Тестирование через SoapUi. UTF-8</a>
+#### Apply 7_13_soapui_utf8_converter.patch
+- Инструменты тестирования REST:
+  - <a href="http://www.soapui.org/">SoapUi</a>
+  - <a href="http://rus-linux.net/lib.php?name=/MyLDP/internet/curlrus.html">Написание HTTP-запросов с помощью Curl</a>
+(для Windows можно использовать Git Bash)
+  - <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop">Postman</a>
+  - <a href="https://www.jetbrains.com/help/idea/rest-client-tool-window.html">IDEA: Tools->Test RESTful Web Service</a>
+  - [Insomnia REST client](https://insomnia.rest/)
+
+**Импортировать проект в SoapUi из config\Topjava-soapui-project.xml. Response смотреть в формате JSON.**
+
+-  Проверка UTF-8: <a href="http://localhost:8080/topjava/rest/profile/text">http://localhost:8080/topjava/rest/profile/text</a>
+-  <a href="http://forum.spring.io/forum/spring-projects/web/74209-responsebody-and-utf-8">ResponseBody and UTF-8</a>
 
 ## ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Ваши вопросы
 > При выполнении тестов через MockMvc никаких изменений на базе не видно, почему оно не сохраняет?
