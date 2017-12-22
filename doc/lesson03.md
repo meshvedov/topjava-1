@@ -78,7 +78,7 @@
 -  <a href="https://ru.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>.
 -  [PostgreSQL JDBC Driver](https://github.com/pgjdbc/pgjdbc)
 -  <a href="http://java-course.ru/begin/postgresql/">Установка PostgreSQL</a>. **ВНИМАНИЕ! с postgres 9.6 возможны проблемы.** 
--  Чтобы избежать проблем с правами и именами каталогов, [**рекомендуют установить postgres в простой каталог, например `C:\Postgresql`**. И при проблемах создать каталог data на другом диске](https://stackoverflow.com/questions/43432713/postgresql-installation-on-windows-8-1-database-cluster-initialisation-failed). Если Unix, проверить права доступа к папке.
+-  Чтобы избежать проблем с правами и именами каталогов, [**рекомендуют установить postgres в простой каталог, например `C:\Postgresql`**. И при проблемах создать каталог data на другом диске](https://stackoverflow.com/questions/43432713/postgresql-installation-on-windows-8-1-database-cluster-initialisation-failed). Если Unix, [проверить права доступа к папке (0700)](http://www.sql.ru/forum/765555/permissions-should-be-u-rwx-0700).
     
 > Создать в pgAdmin новую базу `topjava` и новую роль `user`, пароль `password`
 
