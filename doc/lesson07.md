@@ -137,8 +137,8 @@ hamcrest-all используется в проверках `RootControllerTest`
   -  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/html/validation.html#core-convert">Spring Type Conversion</a>
   -  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/html/validation.html#format">Spring Field Formatting</a>
   -  <a href="http://stackoverflow.com/questions/13048368/difference-between-spring-mvc-formatters-and-converters">Difference between Spring MVC formatters and converters</a>
-- 4: Протестировать `MealRestController` через любой инструмент (SoapUi, curl, IDEA Test RESTful Web Service, Postman)
-
+- 4: Протестировать `MealRestController` (SoapUi, curl, IDEA Test RESTful Web Service, Postman). Запросы `curl` занести в отдельный `md` файл (либо `README.md`)
+  
 **На следующем занятии используется JavaScript/jQuery. Если у вас там пробелы, <a href="https://github.com/JavaOPs/topjava#html-javascript-css">пройдите его основы</a>**
 
 ---------------------
