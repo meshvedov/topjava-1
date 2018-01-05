@@ -70,7 +70,7 @@ GROUP BY u.id
 #### Apply 7_09_rest_test_jackson.patch
 -  https://github.com/FasterXML/jackson-databind
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFNWEyVGJIU2JMTFE">Кастомизация Jackson Object Mapper</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=1CM6y1JhKG_yeLQE_iCDONnI7Agi4pBks">Кастомизация Jackson Object Mapper</a>
     
 #### Apply 7_10_jackson_object_mapper.patch
 -  Сериализация hibernate lazy-loading с помощью <a href="https://github.com/FasterXML/jackson-datatype-hibernate">jackson-datatype-hibernate</a>
