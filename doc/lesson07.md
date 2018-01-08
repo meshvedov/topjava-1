@@ -58,7 +58,7 @@ GROUP BY u.id
 -  <a href="https://ru.wikipedia.org/wiki/JSON">JSON (JavaScript Object Notation</a>
 -  <a href="https://spring.io/understanding/rest">Understanding REST</a>
 -  <a href="http://www.infoq.com/articles/springmvc_jsx-rs">JAX-RS vs Spring MVC</a>
--  <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping">Request mapping</a>
+-  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-requestmapping">Request mapping</a>
 -  Ресурсы:
    - <a href="http://habrahabr.ru/post/144011/">RESTful API для сервера – делаем правильно (Часть 1)</a>
    - <a href="http://habrahabr.ru/post/144259/">RESTful API для сервера – делаем правильно (Часть 2)</a>

@@ -90,7 +90,7 @@
 -  <a href="http://db-engines.com/en/ranking">DB-Engines Ranking</a>
 -  <a href="http://ru.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>
 -  Обзор Java persistence solution без ORM: <a href="http://commons.apache.org/proper/commons-dbutils/">commons-dbutils</a>,
-            <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/jdbc.html">Spring JdbcTemplate</a>,
+            <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc">Spring JdbcTemplate</a>,
             <a href="http://en.wikipedia.org/wiki/MyBatis">MyBatis</a>, <a href="http://www.jdbi.org/">JDBI</a>, <a href="http://www.jooq.org/">jOOQ</a>
 - Основы:
   - <a href="https://ru.wikipedia.org/wiki/Реляционная_СУБД">Реляционная СУБД</a>
@@ -113,7 +113,7 @@
 > в `JdbcUserRepositoryImpl.getByEmail()` заменил `queryForObject()` на `query()`. Загляните в код: `queryForObject` бросает `EmptyResultDataAccessException` вместо нужного нам `null`.
 
 #### Apply 3_10_db_implementation.patch
--  Подключение <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/jdbc.html">Spring Jdbc</a>.
+-  Подключение <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc">Spring Jdbc</a>.
 -  Конфигурирование DataSource. <a href="http://www.mkyong.com/spring/spring-propertyplaceholderconfigurer-example/">Property Placeholder</a>
 
 >  Проверьте, что в контекст Spring проекта включены оба файла конфигурации
