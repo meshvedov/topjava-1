@@ -1,6 +1,5 @@
 package ru.javawebinar.topjava.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -40,7 +39,10 @@ public class User extends AbstractNamedEntity {
     @Size(max = 100)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "\n" +
+            "    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)\n" +
+            "    @Enumerated(EnumType.STRING)\n" +
+            "    @CollectionTable(name = \"user_roles\", joinColumns = @JoinColumn(name = \"user_id\"))password", nullable = false)
     @NotBlank
     @Size(min = 5, max = 64)
     private String password;
@@ -67,7 +69,7 @@ public class User extends AbstractNamedEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @OrderBy("dateTime DESC")
-    @JsonIgnore
+//    @JsonIgnore
     protected List<Meal> meals;
 
     public User() {
