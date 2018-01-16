@@ -94,9 +94,11 @@ Datatables перевели на ajax (`"ajax": {"url": ajaxUrl, ..`), те пр
 > - Добавил в `ErrorInfo` тип ошибки `ErrorType`
 > - `@ResponseBody` над методами `ExceptionInfoHandler` заменил на `@RestControllerAdvice`
 > - В `ExceptionInfoHandler` удалил `@Order` над методами и добавил над классом:
->    *  Methods are matched by closest exception in
->    *  @see  org.springframework.web.method.annotation.ExceptionHandlerMethodResolver#getMappedMethod
->    *  164: Collections.sort(matches, new ExceptionDepthComparator(exceptionType))
+```
+  Methods are matched by closest exception in
+  *  @see  org.springframework.web.method.annotation.ExceptionHandlerMethodResolver#getMappedMethod
+  *  164: Collections.sort(matches, new ExceptionDepthComparator(exceptionType))
+```
 > - В `ExceptionInfoHandler.logAndGetErrorInfo()` также использую `ValidationUtil.getRootCause`
 
 - <a href="http://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc#errors-and-rest">Сериализация Exception в JSON</a>
