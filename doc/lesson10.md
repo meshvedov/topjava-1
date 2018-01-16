@@ -24,7 +24,7 @@ Datatables перевели на ajax (`"ajax": {"url": ajaxUrl, ..`), те пр
 ## Занятие 10:
 
 #### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. [Дополнительно: кастомизация JSON (@JsonView) и валидации (groups)](https://drive.google.com/file/d/0B9Ye2auQ_NsFRTFsTjVHR2dXczA)
-**ВНИМАНИЕ! Не обязательные патчи. Если будете делать- то в отдельной ветке (у меня `opt_view_groups`). Это варианты решений, которые не идут в `master`.**
+**ВНИМАНИЕ! `10_04_opt` и `10_05_opt` - не обязательные патчи. Если будете делать- то в отдельной ветке (у меня `opt_view_groups`). Это варианты решений, которые не идут в `master`.**
 -  [Что возвращать: Entity или DTOs](https://stackoverflow.com/a/21569720/548473)
 
 #### Apply 10_04_opt_json_view.patch
