@@ -93,7 +93,7 @@
     -  <a href="http://validator.hibernate.org">hibernate-validator</a>. <a href="http://stackoverflow.com/questions/14730329/jpa-2-0-exception-to-use-javax-validation-package-in-jpa-2-0">JSR-303 -> JSR-349</a>
     -  <a href="https://web.archive.org/web/20170514002949/http://java.devcolibri.com:80/post/15">Описание связей в модели. Ленивая загрузка объекта.</a>
     -  <a href="http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/architecture.html#d0e61">JPA definitions</a>
-    -  <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/expressions.html">Spring expressions: выражения в конфигурации</a>
+    -  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions">Spring expressions: выражения в конфигурации</a>
     -  <a href="http://docs.jboss.org/hibernate/orm/4.2/devguide/en-US/html/ch11.html">HQL</a>/ <a href="http://ru.wikipedia.org/wiki/Java_Persistence_Query_Language">JPQL</a>.
     -  Динамические запросы (которые формируются в коде): <a href="http://www.objectdb.com/java/jpa/query/criteria">JPA Criteria API</a>. <a href="http://www.querydsl.com/">Unified Queries for Java</a>
     -  <a href="https://bitbucket.org/montanajava/jpaattributeconverters">Using the Java 8 Date Time Classes with JPA</a>
@@ -207,7 +207,8 @@ Hibernate (как любая ORM) реализует маппинг таблиц
 ## [Выпускной проект](graduation.md)
 - Для проекта я взял реальное тестовое задание, поэтому жалоб не неясность формулировок принимать не буду- сделайте как поняли. Представьте, что это ваше тестовое задание на работу.
 - Общение в канале Slack *#graduate_project*
-- Ревью проекта входит в участие с проверкой домашних заданий (ревьюится один раз!). Отдать на ревью нужно до 08.02.
+- Ревью проекта входит в участие с проверкой домашних заданий (ревьюится один раз!). Отдать на ревью нужно до 15.02 (если идешь на проект "<a href="http://javaops.ru/reg/masterjava">Многомодульный maven. Многопоточность. XML (JAXB/StAX).
+    Веб сервисы (JAX-RS/SOAP). Удаленное взаимодействие (JMS/AKKA) (Masterjava)</a>", то срок до 31.05).
 - По завершению ты сможешь занести этот проект в свое портфолио и резюме как собственный, без всяких оговорок.
 - Обязательно проверяйся [по рекомендациям в конце выпускного](graduation.md#-Рекомендации)
 

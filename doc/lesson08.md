@@ -78,6 +78,7 @@
 -  <a href="http://anton.shevchuk.name/jquery/">jQuery для всех</a>.
 -  <a href="http://anton.shevchuk.name/javascript/jquery-for-beginners-ajax/">jQuery для начинающих. AJAX</a>.
 -  <a href="http://anton.shevchuk.name/javascript/jquery-for-beginners-selectors/">jQuery для начинающих. Селекторы</a>.
+- [jQuery task from freecodecamp](https://www.freecodecamp.org/map-aside#nested-collapsejQuery)
 -  <a href="http://api.jquery.com/">jQuery API</a>
 -  Редактирование таблицы на основе <a href="http://getbootstrap.com/javascript/#modals">модального окна Bootstrap</a>.
 -  <a href="http://bootstrap-ru.com/203/javascript.php">Javascript плагины для Bootstrap</a>
@@ -204,3 +205,4 @@ Maven скачивает все депенденси в local repository, кот
 - 3: enable/disable делать c `@Transactional` (можно реализовать как на уровне репозитория, так и на уровне сервиса через несколько sql, которые должны быть в одной транзакции)
 - 4: в `datatablesUtil.js` следует выносите только общие скрипты (cкрипты еды размещайте в  `mealDatatables.js`, пользователей в `userDatatables.js`)
 - 5: если в контроллер приходит `null` проверте в `Network` вкладке браузера в каком формате приходят данные и в каком формате в контроллере вы их принимаете (`consumes`).
+- 6: при реализации `enable/disable` лучше явно указывать нужное состояние, чем переключать на противоположное. Если параллельно вам кто-то изменит состояние, то будет несоответствие UI и DB.

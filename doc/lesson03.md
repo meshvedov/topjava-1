@@ -90,7 +90,7 @@
 -  <a href="http://db-engines.com/en/ranking">DB-Engines Ranking</a>
 -  <a href="http://ru.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>
 -  Обзор Java persistence solution без ORM: <a href="http://commons.apache.org/proper/commons-dbutils/">commons-dbutils</a>,
-            <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/jdbc.html">Spring JdbcTemplate</a>,
+            <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc">Spring JdbcTemplate</a>,
             <a href="http://en.wikipedia.org/wiki/MyBatis">MyBatis</a>, <a href="http://www.jdbi.org/">JDBI</a>, <a href="http://www.jooq.org/">jOOQ</a>
 - Основы:
   - <a href="https://ru.wikipedia.org/wiki/Реляционная_СУБД">Реляционная СУБД</a>
@@ -113,7 +113,7 @@
 > в `JdbcUserRepositoryImpl.getByEmail()` заменил `queryForObject()` на `query()`. Загляните в код: `queryForObject` бросает `EmptyResultDataAccessException` вместо нужного нам `null`.
 
 #### Apply 3_10_db_implementation.patch
--  Подключение <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/jdbc.html">Spring Jdbc</a>.
+-  Подключение <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc">Spring Jdbc</a>.
 -  Конфигурирование DataSource. <a href="http://www.mkyong.com/spring/spring-propertyplaceholderconfigurer-example/">Property Placeholder</a>
 
 >  Проверьте, что в контекст Spring проекта включены оба файла конфигурации
@@ -124,6 +124,7 @@
 #### Apply 3_11_test_UserService.patch
 - [Spring Testing Annotations](https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/htmlsingle/#integration-testing-annotations-spring)
 - [The JPA hashCode() / equals() dilemma](https://stackoverflow.com/questions/5031614/the-jpa-hashcode-equals-dilemma)
+- [Hibernate: implementing equals() and hashCode()](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode)
 - [Junit Matcher for comparators](https://stackoverflow.com/questions/17949752)
 - [AssertJ custom comparison strategy](http://joel-costigliola.github.io/assertj/assertj-core-features-highlight.html#custom-comparison-strategy). [AssertJ field by field comparisons](http://joel-costigliola.github.io/assertj/assertj-core-features-highlight.html#field-by-field-comparison)
 

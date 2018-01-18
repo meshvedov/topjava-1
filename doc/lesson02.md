@@ -117,7 +117,7 @@
 #### Apply 2_4_add_spring_context.patch
 -  <a href="http://en.wikipedia.org/wiki/Spring_Framework">Spring Framework</a>
 -  <a href="http://spring.io/projects">Проекты Spring</a>.
--  <a href=https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/overview.html>Обзор Spring Framework</a>
+-  <a href=https://docs.spring.io/spring/docs/current/spring-framework-reference/html/overview.html>Обзор Spring Framework</a>
 
 #### Apply 2_5_add_dependency_injection.patch
 -  <a href="https://ru.wikipedia.org/wiki/Инверсия_управления">Инверсия управления.</a>
@@ -129,11 +129,11 @@
 -  <a href="http://www.mkyong.com/spring/spring-auto-scanning-components/">Spring Auto Scanning Components</a>
 -  <a href="http://www.seostella.com/ru/article/2012/02/12/ispolzovanie-annotacii-autowired-v-spring-3.html">Использование аннотации @Autowired</a>
 -  Дополнительное:
-   -  <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/beans.html">Introduction to the Spring IoC container
+   -  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">Introduction to the Spring IoC container
        and beans</a>
    -  <a href="http://it.vaclav.kiev.ua/2010/12/25/spring-framework-for-begginers-part-7/">Constructor против Setter Injection </a>
    -  <a href="https://spring.io/guides">Getting Started</a>
-   -  <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/htmlsingle/">Spring Framework Reference Documentation</a>
+   -  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/">Spring Framework Reference Documentation</a>
    -  <a href="https://github.com/spring-projects">Spring на GitHub</a>
    -  <a href="https://dzone.com/refcardz/spring-annotations">Spring Annotations</a>
 

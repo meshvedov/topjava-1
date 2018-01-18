@@ -58,7 +58,7 @@ GROUP BY u.id
 -  <a href="https://ru.wikipedia.org/wiki/JSON">JSON (JavaScript Object Notation</a>
 -  <a href="https://spring.io/understanding/rest">Understanding REST</a>
 -  <a href="http://www.infoq.com/articles/springmvc_jsx-rs">JAX-RS vs Spring MVC</a>
--  <a href="https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping">Request mapping</a>
+-  <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-requestmapping">Request mapping</a>
 -  Ресурсы:
    - <a href="http://habrahabr.ru/post/144011/">RESTful API для сервера – делаем правильно (Часть 1)</a>
    - <a href="http://habrahabr.ru/post/144259/">RESTful API для сервера – делаем правильно (Часть 2)</a>
@@ -70,7 +70,7 @@ GROUP BY u.id
 #### Apply 7_09_rest_test_jackson.patch
 -  https://github.com/FasterXML/jackson-databind
 
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFNWEyVGJIU2JMTFE">Кастомизация Jackson Object Mapper</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=1CM6y1JhKG_yeLQE_iCDONnI7Agi4pBks">Кастомизация Jackson Object Mapper</a>
     
 #### Apply 7_10_jackson_object_mapper.patch
 -  Сериализация hibernate lazy-loading с помощью <a href="https://github.com/FasterXML/jackson-datatype-hibernate">jackson-datatype-hibernate</a>
