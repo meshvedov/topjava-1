@@ -19,7 +19,7 @@ Each restaurant provides new menu each day.
 
 As a result, provide a link to github repository.
 
-**It should contain the code, README.md with API documentation and curl commands to get data for voting and vote.**
+It should contain the code and **README.md with API documentation and curl commands to get data for voting and vote.**
 
 -----------------------------
 P.S.: Make sure everything works with latest version that is on github :)
