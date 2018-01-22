@@ -3,16 +3,17 @@
 ### Обновил <a href="http://topjava.herokuapp.com/">Демо</a> приложение нашей версией
 
 ## <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFSzlObk8tbHdtcXc">Материалы занятия</a>
-#### Некоторые темы урока совсем новые, поэтому видео есть не везде. Все материалы проекта (в том числе и будущие обновления) останутся доступны в Google Drive.
+#### Некоторые темы урока новые, поэтому видео есть не везде.
+#### Все материалы проекта (в том числе и будущие обновления) останутся доступны в Google Drive.
 
 ### ![error](https://cloud.githubusercontent.com/assets/13649199/13672935/ef09ec1e-e6e7-11e5-9f79-d1641c05cbe6.png) Правка
 
 #### Apply 11_0_fix.patch
-- Поправил `app_ru.properties`.
+- Поправил `app_ru.properties`
   - Spring в отличии от JSP может работать с UTF-8.
   - Проверьте в настройках IDEA [справа внизу выключенный флаг _Transparent native-to-ascii conversion_](https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%9F%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D1%83-utf-8)
 - Поправил [сodacy issues](https://www.codacy.com/app/javawebinar/topjava/issues/index?bid=5019773&filters=W3siaWQiOiJDYXRlZ29yeSIsInZhbHVlcyI6WyJFcnJvciBQcm9uZSJdfV0=)
-  - В `exception.jsp` подразумевается оставить закомментированный код HTML на старнице, потому используется `<!-- -->`
+  - В `exception.jsp` подразумевается оставить закомментированный код HTML на странице, потому используется `<!-- -->`
 
 ## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Разбор домашнего задания HW10
 
@@ -20,7 +21,7 @@
 #### Apply 11_01_HW10_fix_encoding.patch
 #### Apply 11_02_HW10_validation.patch
 > - В [соответствии со спицификацией](http://stackoverflow.com/a/22358422/548473) для поменял `HTTP 400` (ошибка в структуре сообщения) на `HTTP 422` (ошибка в содержании)
-> - Сделал тесты и проверку типа ошибки [через `jsonPath`](https://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-write-clean-assertions-with-jsonpath/)
+> - Сделал тесты и проверку типа ошибки [через jsonPath](https://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-write-clean-assertions-with-jsonpath/)
 
 #### Apply 11_03_HW10_duplicate_email.patch
 > - сделал код(ключ) i18n константой (`EXCEPTION_DUPLICATE_EMAIL`)
@@ -58,7 +59,7 @@
 > **Попробуйте до и после патча ввести в любое текстовое поле редактирования `<script>alert('XSS')</script>` и сохранить.**
 #### Apply 11_07_XSS.patch
 > - `password` проверять не надо, т.к. он не выводится в html, а [email надо](https://stackoverflow.com/questions/17480809)
-> - Сделал общий интерфейс валидации `View.Web` и `@Validated(View.Web.class)` вместо `@Valid` для проверки содержимого только на входе Ajax/REST. При сохранении проверка на безопасный html контент не делается.
+> - Сделал общий интерфейс валидации `View.Web` и `@Validated(View.Web.class)` вместо `@Valid` для проверки содержимого только на входе UI/REST. При сохранении проверка на безопасный html контент не делается.
 
 - <a href="https://forum.antichat.ru/threads/20140/">XSS для новичков</a>
 - <a href="https://habrahabr.ru/post/66057/">XSS глазами злоумышленника</a>
@@ -132,13 +133,14 @@ Datasources advanced
 - Сделать и внести в свое портфолио <a href="https://github.com/JavaWebinar/topjava/blob/doc/doc/graduation.md#graduation-project">Graduation project</a>
   - Для участников с проверкой выпускной проект принимаю на ревью до 15.02 (участникам <a href="http://javaops.ru/reg/masterjava">Masterjava</a> до 31.05).
 - **Пройти важную тему МНОГОПОТОЧНОСТЬ по <a href="https://github.com/JavaOPs/masterjava">первому уроку Masterjava</a>.**
-   - Обучение на Masterjava сейчас идет в индивидуальном режиме, старт в любое время. Цена для участников Topjava снижена.
+   - Обучение на Masterjava сейчас идет в индивидуальном режиме, старт в любое время.
    - Проект, патчи, группа Slack, занятия и видео анологичны проекту Topjava.
+   - **Цена для участников Topjava снижена**
    
 ## Возможные доработки приложения:
 -  Для редактирования паролей сделать отдельный интерфейс с запросом старого пароля и кнопку сброса пароля для администратора.
 -  Добавление и удаление ролей для пользователей в админке.
--  Перевести UI на <a href="http://angular.ru/">angular.js</a> / <a href="https://vaadin.com/elements">Vaadin elements</a> /GWT /GXT /Vaadin / ZK/ [Ваш любимый фреймворк]..
+-  Перевести UI на Angular / <a href="https://vaadin.com/elements">Vaadin elements</a> /GWT /GXT /Vaadin / ZK/ [Ваш любимый фреймворк]..
 -  Перевести проект на <a href="http://projects.spring.io/spring-boot/">Spring Boot</a>
 -  Перевести шаблоны с JSP на <a href="http://www.thymeleaf.org/doc/articles/petclinic.html">Thymeleaf</a>
 -  Сделать авторизацию в приложение по OAuth 2.0 (<a href="http://projects.spring.io/spring-security-oauth/">Spring Security OAuth</a>,
@@ -187,5 +189,5 @@ Datasources advanced
 -  возраст и день рождения можно не писать
 -  все упоминания Junior убрать!
 -  линки делай кликабельными (если формат поддерживает)
--  если нет опыта в IT, обязательно вставьте [Topjava](https://github.com/JavaOPs/topjava/blob/master/cv.md#Позиционирование-проекта-topjava). Все не-IT можно кратко.
+-  если нет опыта в IT, обязательно вставьте [Topjava](https://github.com/JavaOPs/topjava/blob/master/cv.md#Позиционирование-проекта-topjava). Также можно вставить ссылку на свой сертификать (она есть в вашем профиле). Все не-IT можно кратко.
 - всю выгодную для себя информацию (и важную для HR) распологайте вверху. Название секций в резюме и их порядок относительно стандартный и важный
