@@ -32,17 +32,13 @@ public class User extends AbstractNamedEntity {
     public static final String BY_EMAIL = "User.getByEmail";
     public static final String ALL_SORTED = "User.getAllSorted";
 
-
     @Column(name = "email", nullable = false, unique = true)
     @Email
     @NotBlank
     @Size(max = 100)
     private String email;
 
-    @Column(name = "\n" +
-            "    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)\n" +
-            "    @Enumerated(EnumType.STRING)\n" +
-            "    @CollectionTable(name = \"user_roles\", joinColumns = @JoinColumn(name = \"user_id\"))password", nullable = false)
+    @Column(name = "password", nullable = false)
     @NotBlank
     @Size(min = 5, max = 64)
     private String password;
