@@ -69,19 +69,5 @@ public class MealWithExceed {
     @Override
     public int hashCode() {
         return id.hashCode();
-    }        List<MealWithExceed> withExceeded = MealsUtil.getWithExceeded(MEALS, MealsUtil.DEFAULT_CALORIES_PER_DAY);
-        mockMvc.perform(get("/meals"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(view().name("meals"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/meals.jsp"))
-                .andExpect(model().attribute("meals", hasSize(6)))
-                .andExpect(model().attribute("meals", hasItem(
-                        allOf(
-                                hasProperty("id", is((MEAL1_ID))),
-                                hasProperty("dateTime", is(MEAL1.getDateTime()))
-                        )
-                )))
-                .andExpect(model().attribute("meals", withExceeded));
-
+    }
 }
