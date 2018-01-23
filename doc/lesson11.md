@@ -83,6 +83,7 @@
 
 ###  ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png)  <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFZkpVM19QWFBOQ2c">3. Деплой приложения в Heroku.</a>
 #### Apply 11_11_heroku.patch
+
 > - Добавил зависимости `postgres` в профиль мавена `heroku`
 > - [Поменял настройки `dataSource` для профиля `heroku`](http://stackoverflow.com/questions/10684244/dbcp-validationquery-for-different-databases). 
 При опускании/поднятии приложения в heroku.com портятся коннекты в пуле и необходимо их валидировать. 
@@ -114,6 +115,8 @@ Datasources advanced
    -  <a href="https://dzone.com/articles/simple-paas-comparison-guide">A Simple PaaS Comparison Guide (With the Java Dev in Mind)</a>
    -  <a href="http://www.ibm.com/developerworks/library/j-paasshootout/">Java PaaS shootout</a>
 
+#### Apply 11_12_fix_locale.patch
+- Починка тестов, зависящих от локали окружения
 
 ###  ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png)  <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFQVc2WUdCR0xvLWM">4. Собеседование. Разработка ПО</a>
 - [Темы/ресурсы тестового собеседования](http://javaops.ru/interview/test.html)
