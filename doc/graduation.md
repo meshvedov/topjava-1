@@ -17,7 +17,9 @@ Build a voting system for deciding where to have lunch.
 
 Each restaurant provides new menu each day.
 
-As a result, provide a link to github repository. It should contain the code, README.md with API documentation and couple curl commands to test it.
+As a result, provide a link to github repository.
+
+It should contain the code and **README.md with API documentation and curl commands to get data for voting and vote.**
 
 -----------------------------
 P.S.: Make sure everything works with latest version that is on github :)
@@ -39,7 +41,7 @@ _Антуан де Сент-Экзюпери_
 
 - 1: **читаем ТЗ ОЧЕНЬ внимательно, НЕ надо ничего своего туда домысливать и творчески изменять**
 - 2: **тщательно считайте количество обращений в базу на каждый запрос. Особенно при запросах от юзеров, которых очень много! Также на сложность запросов от них, чтобы не положить базу**
-- 3: **тщательно считайте количество запросов в вашем API для отображения нужной информации**
+- 3: **тщательно считайте количество запросов в вашем API для отображения нужной информации и чтобы проголосовать**
 - 4: **учитывайте, что пользователей может быть ооочень много, а админов- мало**
 - 5: в проекте (и тестовом задании на работу) в отличие от нашего учебного topjava оставляйте только необходимый для работы приложения код, ничего лишнего:
   - 5.1 НЕ надо делать разные профили базы и работы с ней. 
