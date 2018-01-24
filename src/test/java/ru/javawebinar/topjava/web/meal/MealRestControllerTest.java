@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.web.meal;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -8,11 +9,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ru.javawebinar.topjava.TestUtil;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.service.MealService;
+import ru.javawebinar.topjava.to.MealWithExceed;
+import ru.javawebinar.topjava.util.MealsUtil;
 import ru.javawebinar.topjava.web.AbstractControllerTest;
 import ru.javawebinar.topjava.web.json.JsonUtil;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -59,9 +63,19 @@ public class MealRestControllerTest extends AbstractControllerTest {
 
     @Test
     public void testGetBetween() throws Exception {
-        ResultActions actions = mockMvc.perform(get(URL + "/between/" + LocalDateTime.now()))
+        List<MealWithExceed> expected = MealsUtil.getWithExceeded(Arrays.asList(MEAL3, MEAL2, MEAL1), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+        ResultActions actions = mockMvc.perform(get(URL + "/between")
+                    .param("startLDT", LocalDateTime.of(2015, 5, 30, 9, 0).toString())
+                    .param("endLDT", LocalDateTime.of(2015, 5, 30, 21, 0).toString()))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("mealWithExceedList", expected));
+    }
+
+    @Test
+    public void testBetween() throws Exception {
+        mockMvc.perform(get(URL + "/filter").param("startDate", "2018-01-24"))
+                .andDo(print());
     }
 
     @Test
