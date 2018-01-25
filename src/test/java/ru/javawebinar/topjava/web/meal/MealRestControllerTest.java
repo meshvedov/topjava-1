@@ -80,7 +80,8 @@ public class MealRestControllerTest extends AbstractControllerTest {
                 .param("startDate", "2015-05-30")
                 .param("endDate", "2015-05-30"))
                 .andDo(print())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(content().json(JsonUtil.writeIgnoreProps(expected, "dateTime")));
 
     }
 
