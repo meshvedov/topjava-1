@@ -3,8 +3,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:repository="http://www.springframework.org/schema/data/repository"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd">
 
     <!--<bean class="ru.mic.web.json.JacksonObjectMapp" id="objectMapper" factory-method="getMapper"/>-->
     <bean id="objectMapper" class="ru.javawebinar.topjava.web.json.JacksonObjectMapper" factory-method="getMapper"/>
@@ -27,10 +28,17 @@
     <mvc:annotation-driven conversion-service="conversionService"/>
 
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="registerDefaultFormatters" value="false"/>
+        <!--<property name="registerDefaultFormatters" value="false"/>-->
         <property name="converters">
             <set>
-                <bean class="ru.javawebinar.topjava.web.converter.DateConverter"/>
+                <!--<bean class="ru.javawebinar.topjava.web.converter.StringToLocalDateConverter"/>-->
+                <!--<bean class="ru.javawebinar.topjava.web.converter.StringToLocalTimeConverter"/>-->
+            </set>
+        </property>
+        <property name="formatters">
+            <set>
+                <bean class="ru.javawebinar.topjava.web.formatter.LocalDateFormatter"/>
+                <bean class="ru.javawebinar.topjava.web.formatter.LocalTimeFormatter"/>
             </set>
         </property>
 

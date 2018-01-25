@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import ru.javawebinar.topjava.MealTestData;
 import ru.javawebinar.topjava.TestUtil;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.service.MealService;
@@ -61,21 +62,26 @@ public class MealRestControllerTest extends AbstractControllerTest {
         assertMatch(actual, expected);
     }
 
-    @Test
-    public void testGetBetween() throws Exception {
-        List<MealWithExceed> expected = MealsUtil.getWithExceeded(Arrays.asList(MEAL3, MEAL2, MEAL1), MealsUtil.DEFAULT_CALORIES_PER_DAY);
-        ResultActions actions = mockMvc.perform(get(URL + "/between")
-                    .param("startLDT", LocalDateTime.of(2015, 5, 30, 9, 0).toString())
-                    .param("endLDT", LocalDateTime.of(2015, 5, 30, 21, 0).toString()))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(model().attribute("mealWithExceedList", expected));
-    }
+//    @Test
+//    public void testGetBetween() throws Exception {
+//        List<MealWithExceed> expected = MealsUtil.getWithExceeded(Arrays.asList(MEAL3, MEAL2, MEAL1), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+//        ResultActions actions = mockMvc.perform(get(URL + "/between")
+//                .param("startLDT", LocalDateTime.of(2015, 5, 30, 9, 0).toString())
+//                .param("endLDT", LocalDateTime.of(2015, 5, 30, 21, 0).toString()))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(model().attribute("mealWithExceedList", expected));
+//    }
 
     @Test
     public void testBetween() throws Exception {
-        mockMvc.perform(get(URL + "/filter").param("startDate", "2018-01-24"))
-                .andDo(print());
+        List<MealWithExceed> expected = MealsUtil.getWithExceeded(Arrays.asList(MEAL3, MEAL2, MEAL1), MealsUtil.DEFAULT_CALORIES_PER_DAY);
+        ResultActions actions = mockMvc.perform(get(URL + "/between")
+                .param("startDate", "2015-05-30")
+                .param("endDate", "2015-05-30"))
+                .andDo(print())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+
     }
 
     @Test
