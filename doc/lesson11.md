@@ -36,6 +36,13 @@
 > - Добавил тесты на дублирование. Отключил транзакционность в тестах на дублирование через `@Transactional(propagation = Propagation.NEVER)`.
 >   - [Решение проблемы с транзакционными тестами](https://stackoverflow.com/a/46415060/548473)
 
+#### ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Вопрос:
+> Поясните, почему без тесты на дубликаты падают без `@Transactional(propagation = Propagation.NEVER)`
+
+- `@Transactional` в `AbstractControllerTest` означает, что коммита в базу не происходит, вместо него делается rollback.
+А без сохранения в базу нарушение ограничения на дубликат не происходит. 
+- `@Transactional(propagation = Propagation.NEVER)` над тестом  отключает `AbstractControllerTest @Transactional`, в репозитории происходит сохранение в базу и в `ExceptionInfoHandler` ловим `DataIntegrityViolationException`.
+
 ###  ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFYms4YUxEMHdxZHM">HW10 Optional: change locale</a>
 #### Apply 11_05_HW10_change_locale.patch
 > - Вместо `lang.jsp` сделал общий `bodyHeader.jsp`
