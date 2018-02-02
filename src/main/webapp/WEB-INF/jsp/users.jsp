@@ -18,8 +18,7 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             <spring:message code="common.add"/>
         </a>
-        <%--<table class="table table-striped display" id="datatable">--%>
-        <table>
+        <table class="table table-striped display" id="datatable">
             <thead>
             <tr>
                 <th><spring:message code="user.name"/></th>
