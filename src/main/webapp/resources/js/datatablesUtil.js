@@ -15,18 +15,18 @@ function makeEditable() {
     // solve problem with cache in IE: https://stackoverflow.com/a/4303862/548473
     $.ajaxSetup({cache: false});
 }
-var today;
+
 function add() {
     $("#detailsForm").find(":input").val("");
-    today = jQuery.now();
-    $("#calories").prop("value", 1000);
-    $("#dateTime").prop(today);
     $("#editRow").modal();
 }
 
 function add_meal() {
     $("#detailsForm").find(":input").val("");
-    $("#dateTime").val(new Date());
+    $("#calories").prop("value", 1000);
+    $("#dateTime").val( function () {
+        return new Date();
+    });
     $("#editRow").modal();
 }
 

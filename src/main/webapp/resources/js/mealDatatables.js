@@ -1,7 +1,8 @@
 var ajaxUrl = "ajax/profile/meals/";
 var datatableApi;
-$(document).ready(function () {
+$(function () {
     datatableApi = $("#datatable").DataTable({
+        "paging":false,
         "info": true,
         "columns": [
             {"data": "dateTime"},
@@ -11,6 +12,5 @@ $(document).ready(function () {
             {"defaultContent": "Delete", "orderable": false}
         ]
     });
-
     makeEditable();
 });
