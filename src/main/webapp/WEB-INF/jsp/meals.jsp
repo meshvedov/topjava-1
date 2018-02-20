@@ -5,6 +5,8 @@
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
 <body>
+<link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
+
 <script type="text/javascript" src="resources/js/datatablesUtil.js" defer></script>
 <script type="text/javascript" src="resources/js/mealDatatables.js" defer></script>
 <jsp:include page="fragments/bodyHeader.jsp"/>
@@ -51,7 +53,7 @@
                         </form>
                     </div>
                     <div class="panel-footer text-right">
-                                <a class="btn btn-danger" type="button" onclick="clearFilter()">
+                        <a class="btn btn-danger" type="button" onclick="clearFilter()">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
                         <a class="btn btn-primary" type="button" onclick="updateTable()">
@@ -76,21 +78,21 @@
             </tr>
             </thead>
             <%--<c:forEach items="${meals}" var="meal">--%>
-                <%--<jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.to.MealWithExceed"/>--%>
-                <%--<tr class="${meal.exceed ? 'exceeded' : 'normal'}">--%>
-                    <%--<td>--%>
-                            <%--&lt;%&ndash;${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<%=TimeUtil.toString(meal.getDateTime())%>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;${fn:replace(meal.dateTime, 'T', ' ')}&ndash;%&gt;--%>
-                            <%--${fn:formatDateTime(meal.dateTime)}--%>
-                    <%--</td>--%>
-                    <%--<td>${meal.description}</td>--%>
-                    <%--<td>${meal.calories}</td>--%>
-                    <%--<td><a><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>--%>
-                    <%--<td><a onclick="deleteRow(${meal.id})">--%>
-                        <%--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>--%>
-                    <%--</a></td>--%>
-                <%--</tr>--%>
+            <%--<jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.to.MealWithExceed"/>--%>
+            <%--<tr class="${meal.exceed ? 'exceeded' : 'normal'}">--%>
+            <%--<td>--%>
+            <%--&lt;%&ndash;${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<%=TimeUtil.toString(meal.getDateTime())%>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;${fn:replace(meal.dateTime, 'T', ' ')}&ndash;%&gt;--%>
+            <%--${fn:formatDateTime(meal.dateTime)}--%>
+            <%--</td>--%>
+            <%--<td>${meal.description}</td>--%>
+            <%--<td>${meal.calories}</td>--%>
+            <%--<td><a><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>--%>
+            <%--<td><a onclick="deleteRow(${meal.id})">--%>
+            <%--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>--%>
+            <%--</a></td>--%>
+            <%--</tr>--%>
             <%--</c:forEach>--%>
         </table>
     </div>
@@ -108,15 +110,26 @@
                     <input type="hidden" id="id" name="id">
 
                     <div class="form-group">
-                        <label for="dateTime" class="control-label col-xs-3"><spring:message
+                        <label for="datetimepicker2" class="control-label col-xs-3"><spring:message
                                 code="meal.dateTime"/></label>
 
                         <div class="col-xs-9">
-                            <input type="datetime-local" class="form-control" id="dateTime" name="dateTime"
-                                   placeholder="<spring:message code="meal.dateTime"/>">
+                            <div class="input-group date" id="datetimepicker2">
+                                <input type="text" class="form-control" name="dateTime"
+                                       placeholder="<spring:message code="meal.dateTime"/>">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
                         </div>
+                        <script>
+                            $(function () {
+                                $("#datetimepicker2").datetimepicker({
+                                    locale: 'ru'
+                                });
+                            });
+                        </script>
                     </div>
-                    <div class="form-group">
+                    <div class=" form-group">
                         <label for="description" class="control-label col-xs-3"><spring:message
                                 code="meal.description"/></label>
 
@@ -130,7 +143,8 @@
                                 code="meal.calories"/></label>
 
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" id="calories" name="calories" placeholder="1000">
+                            <input type="number" class="form-control" id="calories" name="calories"
+                                   placeholder="1000">
                         </div>
                     </div>
                     <div class="form-group">
@@ -155,5 +169,6 @@
     <c:forEach var="key" items='<%=new String[]{"common.deleted","common.saved","common.enabled","common.disabled","common.errorStatus"}%>'>
     i18n["${key}"] = "<spring:message code="${key}"/>";
     </c:forEach>
+
 </script>
 </html>

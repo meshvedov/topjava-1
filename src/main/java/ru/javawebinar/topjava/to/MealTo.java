@@ -10,30 +10,29 @@ import java.time.LocalDateTime;
 public class MealTo extends BaseTo {
 
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime localDateTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime dateTime;
 
     @NotBlank
     private String description;
 
-//    @NotBlank
-    private Integer calories;
+    private int calories;
 
     public MealTo() { }
 
-    public MealTo(Integer id, LocalDateTime localDateTime, String description, int calories) {
+    public MealTo(Integer id, LocalDateTime dateTime, @NotBlank String description, int calories) {
         super(id);
-        this.localDateTime = localDateTime;
+        this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
     }
 
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getDescription() {

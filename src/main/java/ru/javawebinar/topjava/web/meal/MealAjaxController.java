@@ -11,6 +11,7 @@ import ru.javawebinar.topjava.to.MealWithExceed;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -22,6 +23,11 @@ public class MealAjaxController extends AbstractMealController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<MealWithExceed> getAll() {
         return super.getAll();
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Meal get(@PathVariable("id") int id) {
+        return super.get(id);
     }
 
     @Override
@@ -43,7 +49,7 @@ public class MealAjaxController extends AbstractMealController {
 
     @PostMapping
     public ResponseEntity<String> createOrUpdate(@Valid MealTo mealTo, BindingResult result) {
-        Meal meal = new Meal(mealTo.getId(), mealTo.getLocalDateTime(), mealTo.getDescription(), mealTo.getCalories());
+        Meal meal = new Meal(mealTo.getId(), LocalDateTime.now(), mealTo.getDescription(), mealTo.getCalories());
         if (meal.isNew()) {
             super.create(meal);
         } else {

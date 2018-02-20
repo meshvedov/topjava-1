@@ -24,7 +24,10 @@ $(function () {
         "info": true,
         "columns": [
             {
-                "data": "dateTime"
+                "data": function (data) {
+                    var date = data["dateTime"].split('T');
+                    return date[0] + " " + date[1].substr(0, 5);
+                }
             },
             {
                 "data": "description"
