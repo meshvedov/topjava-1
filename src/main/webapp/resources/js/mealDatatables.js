@@ -46,6 +46,9 @@ $(function () {
                 "render": renderDeleteBtn
             }
         ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).addClass(data.exceed ? "exceeded" : "normal");
+        },
         "order": [
             [
                 0,
@@ -53,5 +56,10 @@ $(function () {
             ]
         ],
         "initComplete": makeEditable
+    });
+    $("#dateTime").datetimepicker({
+        format: 'd.m.Y H:i',
+        inline: false,
+        lang: 'ru'
     });
 });

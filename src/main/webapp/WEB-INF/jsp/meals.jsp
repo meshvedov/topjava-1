@@ -5,8 +5,8 @@
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
 <body>
-<link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
-
+<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui.min.css"/>
+<script src="resources/css/jquery-ui.min.js" defer></script>
 <script type="text/javascript" src="resources/js/datatablesUtil.js" defer></script>
 <script type="text/javascript" src="resources/js/mealDatatables.js" defer></script>
 <jsp:include page="fragments/bodyHeader.jsp"/>
@@ -110,24 +110,15 @@
                     <input type="hidden" id="id" name="id">
 
                     <div class="form-group">
-                        <label for="datetimepicker2" class="control-label col-xs-3"><spring:message
+                        <label for="dateTime" class="control-label col-xs-3"><spring:message
                                 code="meal.dateTime"/></label>
 
                         <div class="col-xs-9">
-                            <div class="input-group date" id="datetimepicker2">
-                                <input type="text" class="form-control" name="dateTime"
+                                <input type="text" class="form-control" name="dateTime" id="dateTime"
                                        placeholder="<spring:message code="meal.dateTime"/>">
-                                <span class="input-group-addon"><span
+                                <span class="input-group-addon" ><span
                                         class="glyphicon glyphicon-calendar"></span></span>
-                            </div>
                         </div>
-                        <script>
-                            $(function () {
-                                $("#datetimepicker2").datetimepicker({
-                                    locale: 'ru'
-                                });
-                            });
-                        </script>
                     </div>
                     <div class=" form-group">
                         <label for="description" class="control-label col-xs-3"><spring:message
