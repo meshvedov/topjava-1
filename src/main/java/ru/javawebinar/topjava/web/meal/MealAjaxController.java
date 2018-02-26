@@ -1,6 +1,7 @@
 package ru.javawebinar.topjava.web.meal;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.to.MealTo;
 import ru.javawebinar.topjava.to.MealWithExceed;
+import ru.javawebinar.topjava.util.ValidationUtil;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
@@ -25,25 +27,22 @@ public class MealAjaxController extends AbstractMealController {
     }
 
     @Override
+    @GetMapping(value = "/{id}")
+    public Meal get(@PathVariable("id") int id) {
+        return super.get(id);
+    }
+
+    @Override
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") int id) {
         super.delete(id);
     }
 
-//    @PostMapping
-//    public void createOrUpdate(@RequestParam("id") Integer id,
-//                               @RequestParam("dateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateTime,
-//                               @RequestParam("description") String description,
-//                               @RequestParam("calories") int calories) {
-//        Meal meal = new Meal(id, dateTime, description, calories);
-//        if (meal.isNew()) {
-//            super.create(meal);
-//        }
-//    }
-
     @PostMapping
-    public ResponseEntity<String> createOrUpdate(@Valid MealTo mealTo, BindingResult result) {
-        Meal meal = new Meal(mealTo.getId(), mealTo.getLocalDateTime(), mealTo.getDescription(), mealTo.getCalories());
+    public ResponseEntity<String> createOrUpdate(@Valid Meal meal, BindingResult result) {
+        if (result.hasErrors()) {
+            return ValidationUtil.getErrorResponse(result);
+        }
         if (meal.isNew()) {
             super.create(meal);
         } else {
