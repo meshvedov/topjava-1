@@ -1,14 +1,17 @@
 package ru.javawebinar.topjava.to;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.NonNull;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonView;
+import ru.javawebinar.topjava.View;
+import ru.javawebinar.topjava.util.DateTimeUtil;
 
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public class MealWithExceed extends BaseTo {
+public class MealWithExceed {
+    private final Integer id;
 
+    @JsonView(View.JsonREST.class)
     private final LocalDateTime dateTime;
 
     private final String description;
@@ -18,11 +21,15 @@ public class MealWithExceed extends BaseTo {
     private final boolean exceed;
 
     public MealWithExceed(Integer id, LocalDateTime dateTime, String description, int calories, boolean exceed) {
-        super(id);
+        this.id = id;
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
         this.exceed = exceed;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public LocalDateTime getDateTime() {
@@ -41,21 +48,11 @@ public class MealWithExceed extends BaseTo {
         return exceed;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MealWithExceed that = (MealWithExceed) o;
-        return calories == that.calories &&
-                exceed == that.exceed &&
-                Objects.equals(id, that.id) &&
-                Objects.equals(dateTime, that.dateTime) &&
-                Objects.equals(description, that.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, dateTime, description, calories, exceed);
+    @JsonGetter
+    @JsonView(View.JsonUI.class)
+    @JsonFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
+    public LocalDateTime getDateTimeUI() {
+        return dateTime;
     }
 
     @Override
